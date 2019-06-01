@@ -1,0 +1,81 @@
+start_date:
+  title: 'Begin Date'
+  description: 'Beginning of the school year'
+  type: 'string'
+  format: 'date'
+end_date:
+  title: 'End Date'
+  description: 'End of the school year'
+  type: 'string'
+  format: 'date'
+fee:
+  type: 'array'
+  items:
+    type: 'object'
+    properties:
+      name:
+        title: 'Fee name'
+        type: 'string'
+      description:
+        title: 'Fee Description'
+        type: 'string'
+      amount:
+        title: 'Amount of the fee'
+        type: 'number'
+discount:
+  type: 'array'
+  items:
+    type: 'object'
+    properties:
+      name:
+        title: 'Discount title'
+        type: 'string'
+      description:
+        title: 'Discount description'
+        type: 'string'
+      discount_type:
+        title: 'Discount type'
+        type: 'string'
+        enum: ['amount', 'percent']
+      amount:
+        title: 'Amount or value of the discount'
+        type: 'number'
+      qualifier:
+        title: 'Qualifications for the discount'
+        type: 'string'
+    required:
+      - name
+      - discount_type
+      - amount
+      - qualifier
+class:
+  type: 'array'
+  items:
+    type: 'object'
+    properties:
+      name:
+        title: 'Class name'
+        type: 'string'
+      description:
+        title: 'Class description'
+        type: 'string'
+      start_age:
+        title: 'Starting age'
+        type: 'number'
+      end_age:
+        title: 'Ending age'
+        type: 'number'
+      teacher:
+        title: 'Teacher name'
+        type: 'string'
+      limit:
+        title: 'Children in class'
+        type: 'number'
+      tuition:
+        title: 'Cost of the class'
+        type: 'number'
+    required:
+      - name
+      - tuition
+      - start_age
+      - end_age

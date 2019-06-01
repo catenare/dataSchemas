@@ -1,58 +1,67 @@
-name:
-  title: 'Name'
-  type: 'string'
-address:
-  title: 'Location'
-  description: 'Main location of the center'
+center:
   type: 'object'
-  properties:
-    street_address:
-      title: 'Street Address'
-      type: 'string'
-    city:
-      title: 'City'
-      type: 'string'
-    state_province:
-      title: 'State'
-      type: 'string'
-    postal_code:
-      title: 'Postal Code'
-      type: 'string'
   required:
-    - postal_code
-  additionalProperties:
-    - province
-    - country
-phone_number:
-  title: 'Phone Number'
-  type: 'string'
-email:
-  title: 'Email'
-  type: 'string'
-  format: 'email'
-website:
-  title: 'Website'
-  type: 'string'
-  format: 'uri'
-contacts:
-  title: 'Contacts'
-  type: 'array'
-  items:
-    type: object
-    properties:
-      name:
-        tile: 'Name'
-        type: 'string'
-      phone:
-        title: 'Phone Number'
-        type: 'string'
-      email:
-        title: 'Email'
-        type: 'string'
-        format: 'email'
-      title:
-        title: 'Position'
-        type: 'string'
-    required:
-      - name
-      - phone
+    - name
+    - address
+    - phone_number
+    - email
+    - website
+  properties:
+    name:
+      title: 'Name'
+      type: 'string'
+    address:
+      title: 'Location'
+      description: 'Main location of the center'
+      type: 'object'
+      properties:
+        street_address:
+          title: 'Street Address'
+          type: 'string'
+        city:
+          title: 'City'
+          type: 'string'
+        state_province:
+          title: 'State'
+          type: 'string'
+        postal_code:
+          title: 'Postal Code'
+          type: 'string'
+      required:
+        - postal_code
+      additionalProperties:
+        - province
+        - country
+    phone_number:
+      title: 'Phone Number'
+      type: 'string'
+    email:
+      title: 'Email'
+      type: 'string'
+      format: 'email'
+    website:
+      title: 'Website'
+      type: 'string'
+      format: 'uri'
+    contacts:
+      title: 'Contacts'
+      type: 'array'
+      items:
+        type: object
+        properties:
+          name:
+            tile: 'Name'
+            type: 'string'
+          phone:
+            title: 'Phone Number'
+            type: 'string'
+          email:
+            title: 'Email'
+            type: 'string'
+            format: 'email'
+          title:
+            title: 'Position'
+            type: 'string'
+        required:
+          - name
+          - phone

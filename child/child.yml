@@ -1,0 +1,31 @@
+child:
+  type: 'object'
+  properties:
+    first:
+      title: 'First name'
+      type: 'string'
+    last:
+      title: 'Last name'
+      type: 'string'
+    date_of_birth:
+      title: 'Date of birth'
+      type: 'string'
+      format: 'date'
+    id_number:
+      title: 'Identification number'
+      type: 'string'
+    preferred_name:
+      title: 'Preferred name'
+      description: 'Family or nickname'
+      type: 'string'
+    gender:
+      title: 'Gender'
+      type: 'string'
+      enum:
+        - male
+        - female
+  required:
+    - first
+    - last
+    - date_of_birth
+    - id_number

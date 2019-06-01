@@ -1,0 +1,26 @@
+guardian:
+  title: 'Guardian'
+  type: 'object'
+  properties:
+    first:
+      title: 'First Name'
+      type: 'string'
+    last:
+      title: 'Last Name'
+      type: 'string'
+    id_number:
+      title: 'Identification Number'
+      type: 'string'
+    relationship:
+      title: 'Relationship'
+      description: 'Relationship to child'
+      type: 'string'
+      enum:
+        - parent
+        - guardian
+        - grand_parent
+  required:
+    - first
+    - last
+    - relationship
+    - id_number

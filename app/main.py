@@ -11,9 +11,12 @@ try:
 except ImportError:
     from yaml import Loader, Dumper
 
+BASE_PATH = 'definitions'
+
 
 def load_schema(schema_file):
     schema_object = None
+    schema_file = BASE_PATH + '/' + schema_file
     with open(schema_file, 'r') as current_schema_file:
         return load(current_schema_file, Loader=FullLoader)
 

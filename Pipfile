@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 pyyaml = "*"
 jsonschema = "*"
+python-jsonschema-objects = "*"
 
 [dev-packages]
 "autopep8" = "*"

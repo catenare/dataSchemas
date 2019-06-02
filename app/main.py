@@ -11,6 +11,8 @@ try:
 except ImportError:
     from yaml import Loader, Dumper
 
+import python_jsonschema_objects as pjs
+
 BASE_PATH = 'definitions'
 
 
@@ -44,6 +46,7 @@ def save_json_file(file_name, schema_object):
 
 
 def generate_schema_files(schemas, base):
+    schema_list = {}
     for k, v in schemas.items():
         schema_object = {}
         schema_object.update(base)
@@ -53,12 +56,21 @@ def generate_schema_files(schemas, base):
             properties.update(load_schema(yml_file))
         schema_object['properties'] = properties
         save_json_file(k, schema_object)
+        schema_list[k] = schema_object
+    return schema_list
 
 
 def main():
     print("Generator started")
     base.update(load_schema(definitions_path))
-    generate_schema_files(schemas, base)
+    schema_list = generate_schema_files(schemas, base)
+    schema = schema_list['session']
+    builder = pjs.ObjectBuilder(schema_list['session'])
+    classes = builder.build_classes()
+    # print('Schema: ', schema)
+    # print('Classes:', classes)
+    for x in dir(classes):
+        print(x)
     print('Generator done')
 
 

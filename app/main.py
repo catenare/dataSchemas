@@ -60,15 +60,19 @@ def generate_schema_files(schemas, base):
     return schema_list
 
 
+def create_object(schema):
+    builder = pjs.ObjectBuilder(schema)
+    classes = builder.build_classes()
+    for x in dir(classes):
+        print(x)
+
+
 def main():
     print("Generator started")
     base.update(load_schema(definitions_path))
     schema_list = generate_schema_files(schemas, base)
     schema = schema_list['session']
-    builder = pjs.ObjectBuilder(schema_list['session'])
-    classes = builder.build_classes()
-    for x in dir(classes):
-        print(x)
+    create_object(schema)
     print('Generator done')
 
 

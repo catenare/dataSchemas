@@ -48,24 +48,15 @@ def generate_schema_files(schemas, base):
         properties = {}
         for yml_file in v:
             properties.update(load_schema(yml_file))
-            # schema_object['properties'].update(properties)
         schema_object['properties'] = properties
-        # print(f"File: {yml_file} Object: {k} Keys: ",
-        # schema_object['properties'].keys(), "===========")
         save_json_file(k, schema_object)
 
 
 def main():
+    print("Generator started")
     base.update(load_schema(definitions_path))
     generate_schema_files(schemas, base)
     print('Generator done')
 
 
 main()
-# with open('center.json', 'w') as write_file:
-# json.dump(base_write_file)
-# create the base schema
-# create the center schema
-# create the session schema
-# create the registration schema
-# transaction schema

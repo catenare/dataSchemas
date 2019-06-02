@@ -1,0 +1,93 @@
+definitions:
+  child:
+    type: 'object'
+    properties:
+      first:
+        title: 'First name'
+        type: 'string'
+      last:
+        title: 'Last name'
+        type: 'string'
+      date_of_birth:
+        title: 'Date of birth'
+        type: 'string'
+        format: 'date'
+      id_number:
+        title: 'Identification number'
+        type: 'string'
+      preferred_name:
+        title: 'Preferred name'
+        description: 'Family or nickname'
+        type: 'string'
+      gender:
+        title: 'Gender'
+        type: 'string'
+        enum:
+          - male
+          - female
+    required:
+      - first
+      - last
+      - date_of_birth
+      - id_number
+  person:
+    type: 'object'
+    properties:
+      first:
+        title: 'First'
+        type: 'string'
+      last:
+        title: 'Last'
+        type: 'string'
+      relation:
+        title: 'Relationship'
+        type: 'string'
+      phone:
+        title: 'Phone number'
+        type: 'string'
+  address:
+    type: 'object'
+    required:
+      - street_address
+      - city
+      - postal_code
+    properties:
+      complex:
+        title: 'Complex'
+        type: 'string'
+      unit:
+        title: 'Unit in complex'
+        type: 'string'
+      street_address:
+        title: 'Street address'
+        type: 'string'
+      suburb:
+        title: 'Suburbs'
+        type: 'string'
+      city:
+        title: 'City'
+        type: 'string'
+      postal_code:
+        title: 'Postal code'
+        type: 'string'
+      country:
+        title: 'Country'
+        type: 'string'
+  phone_number:
+    type: 'object'
+    properties:
+      number:
+        title: 'Phone number'
+        type: 'string'
+      number_type:
+        title: 'Number type'
+        type: 'string'
+        enum:
+          - home
+          - work
+          - primary
+          - alternate
+      receive_sms:
+        title: 'Can receive SMS'
+        type: 'boolean'
+        default: false

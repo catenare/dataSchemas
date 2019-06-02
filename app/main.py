@@ -36,20 +36,22 @@ schemas = {
 
 def save_json_file(file_name, schema_object):
     json_file_name = f'{file_name}.json'
-    print("-----")
-    print(json_file_name)
-    print(schema_object)
     with open(json_file_name, 'w') as write_file:
         json.dump(schema_object, write_file)
 
 
 def generate_schema_files(schemas, base):
     for k, v in schemas.items():
+        schema_object = {}
+        schema_object.update(base)
+        schema_object['$id'] = f'http://localhost/{k}.json'
         properties = {}
-        schema_object = base
         for yml_file in v:
             properties.update(load_schema(yml_file))
-        schema_object['properties'].update(properties)
+            # schema_object['properties'].update(properties)
+        schema_object['properties'] = properties
+        # print(f"File: {yml_file} Object: {k} Keys: ",
+        # schema_object['properties'].keys(), "===========")
         save_json_file(k, schema_object)
 
 

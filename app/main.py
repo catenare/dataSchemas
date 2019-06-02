@@ -67,8 +67,6 @@ def main():
     schema = schema_list['session']
     builder = pjs.ObjectBuilder(schema_list['session'])
     classes = builder.build_classes()
-    # print('Schema: ', schema)
-    # print('Classes:', classes)
     for x in dir(classes):
         print(x)
     print('Generator done')

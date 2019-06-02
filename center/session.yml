@@ -4,6 +4,9 @@ session:
     - start_date
     - end_date
   properties:
+    center_id:
+      title: 'Center id number'
+      type: 'string'
     start_date:
       title: 'Begin Date'
       description: 'Beginning of the school year'

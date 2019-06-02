@@ -35,7 +35,7 @@ schemas = {
 
 
 def save_json_file(file_name, schema_object):
-    json_file_name = f'{file_name}.json'
+    json_file_name = f'schemas/{file_name}.json'
     with open(json_file_name, 'w') as write_file:
         json.dump(schema_object, write_file)
 

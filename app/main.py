@@ -50,11 +50,14 @@ def generate_schema_files(schemas, base):
     for k, v in schemas.items():
         schema_object = {}
         schema_object.update(base)
+        schema_object['title'] = f'{k.title()} Schema'
         schema_object['$id'] = f'http://localhost/{k}.json'
         properties = {}
         for yml_file in v:
-            properties.update(load_schema(yml_file))
-        schema_object['properties'] = properties
+            schema = load_schema(yml_file)
+            # print("----", schema, "****")
+            properties.update(schema)
+        schema_object.update(properties)
         save_json_file(k, schema_object)
         schema_list[k] = schema_object
     return schema_list
@@ -62,9 +65,11 @@ def generate_schema_files(schemas, base):
 
 def create_object(schema):
     builder = pjs.ObjectBuilder(schema)
-    classes = builder.build_classes()
-    for x in dir(classes):
-        print(x)
+    ns = builder.build_classes(named_only=True)
+    # session = ns.RegistrationSchema
+    # print(session.__propinfo__)
+    for x in dir(ns):
+        print(str(x))
 
 
 def main():
